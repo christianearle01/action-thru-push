@@ -9,7 +9,7 @@ jobs:
     - name: Checkout project
       uses: actions/checkout@v2
     - name: Branch name
-      run: echo running on branch ${GITHUB_REF##*/}
+      run: echo running on branch ${GITHUB_REF##*/}   # get branch name and run
     - name: Use Node.js 
       uses: actions/setup-node@v1
     - name: Install dependencies
