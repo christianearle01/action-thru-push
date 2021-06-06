@@ -1,8 +1,6 @@
 name: Action thru Push
 on:
   push:
-    branches: 
-        - ${{ github.head_ref }}
 jobs:
   build:
     name: Build Project
@@ -10,6 +8,8 @@ jobs:
     steps:  
     - name: Checkout project
       uses: actions/checkout@v2
+    - name: Branch name
+      run: echo running on branch ${GITHUB_REF##*/}
     - name: Use Node.js 
       uses: actions/setup-node@v1
     - name: Install dependencies
