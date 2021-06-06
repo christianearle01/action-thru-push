@@ -2,7 +2,7 @@ name: Action thru Push
 on:
   push:
     branches: 
-        - master 
+        - feature/git_actions 
 jobs:
   build:
     name: Build Project
