@@ -2,7 +2,7 @@ name: Action thru Push
 on:
   push:
     branches: 
-        - feature/git_actions 
+        - ${{ github.head_ref }}
 jobs:
   build:
     name: Build Project
