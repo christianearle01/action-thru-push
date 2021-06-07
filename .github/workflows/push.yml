@@ -1,8 +1,6 @@
 name: Action thru Push
 on:
-  push:
-    branches: 
-        - feature/git_actions 
+  [push, pull_request]
 jobs:
   build:
     name: Build Project
@@ -10,11 +8,13 @@ jobs:
     steps:  
     - name: Checkout project
       uses: actions/checkout@v2
+    - name: Branch name
+      run: echo running on branch ${GITHUB_REF##*/}   # get branch name and run
     - name: Use Node.js 
       uses: actions/setup-node@v1
     - name: Install dependencies
       run: npm install
-    - name: Build the project
-      run: npm run build --if-present
+    - name: Build the project           # auto build/git actions 
+      run: npm run build --if-present   # upon commit
     - name: Test project
       run: npm test

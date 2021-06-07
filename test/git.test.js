@@ -25,4 +25,13 @@ describe("Testing GitCommand.status()", function(){
 
         expect(output).to.equal('You have 0 change/s.');
     });
+
+    it('Should return information if nothing to push', function(){
+        let wd = new WorkingDirectory();
+        let git = new GitCommand(wd);
+        git.init();
+        let output = git.push();
+        
+        expect(output).to.equal('Nothing to push. No committed file found.');
+    });
 })
