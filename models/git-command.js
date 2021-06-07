@@ -11,10 +11,6 @@ class GitCommand {
 
     //Command: git status
     status(){        
-        /*
-            For assignment #1:
-            Create logic here and run unit testing.
-        */
         const new_changes = this.working_directory.new_changes;
         let result = `You have ${(Object.keys(new_changes)).length} change/s.`;
         for(const key of Object.keys(new_changes))
@@ -30,11 +26,6 @@ class GitCommand {
             this.staging.push(modified_files[path_file]);
             delete modified_files[path_file];
         }
-        /*
-            For assignment #2:
-            Create logic here and run unit testing.
-            Don't forget to uncomment the unit tests.
-        */
         else{
             return `Failed to add ${path_file}! File is not modified or missing.`;
         }
