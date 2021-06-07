@@ -1,7 +1,6 @@
 name: Action thru Push
 on:
-  push:
-  pull:
+  [push, pull_request]
 jobs:
   build:
     name: Build Project
